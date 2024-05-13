@@ -11,7 +11,7 @@ CUSTOMER
 --tüm tabloyu getirir
 
 
---TRUNCATE TABLE CUSTOMER
+TRUNCATE TABLE CUSTOMER
 --tüm tablonun verilerini siler
 
 
