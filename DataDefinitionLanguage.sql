@@ -1,7 +1,7 @@
-CREATE DATABASE database-name
+CREATE DATABASE database_name
 -- database oluþturur
 
-USE database-name
+USE database_name
 
 -- database adlý database üzerinde iþlem yapacaðýmý belirtilir bu komut ile
 
