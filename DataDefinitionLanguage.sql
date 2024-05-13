@@ -1,15 +1,15 @@
-create database databasename 
--- database oluşturur
+CREATE DATABASE databasename 
+-- database oluÃ¾turur
 
-use databasename
+USE databasename
 
--- database adlı database üzerinde işlem yapacağımı belirtilir bu komut ile
+-- database adlÃ½ database Ã¼zerinde iÃ¾lem yapacaÃ°Ã½mÃ½ belirtilir bu komut ile
 
- create table Student(
+ CREATE TABLE Student(
 ID_Student INT PRIMARY KEY NOT NULL,
 Name_Student varchar(50),
 Surname_Student varchar(50),
 Birthdate_Student varchar(10)
 )
 
---Student adlı tablo oluşturuldu ve ıd name surname ve bırthdate adlı kolonlar kuruldu
+--Student adlÃ½ tablo oluÃ¾turuldu ve Ã½d name surname ve bÃ½rthdate adlÃ½ kolonlar kuruldu
