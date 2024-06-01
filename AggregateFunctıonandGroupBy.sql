@@ -102,3 +102,24 @@ ORDER BY 1,2
 -- burada DATANAME () fonksiyonu belirtilen şekilde tarihleri filtreler ve adını döndürür ingilizce, DATEPART() ise belirtilen şekilde tarihi filtreler ama 
 --sayı döndürün (1-12 ay gibi) , türkçe yazdırması için set language kullanılır.
 
+
+
+--her ürün için kaç adet satıldı, tl olarak ne kadara satıldı, ilk ne zaman son ne zaman satıldı, en düşük fiyat ve en yüksek fiyatı ortalama hangi fiyattan satıldı 
+--bunaları içeren sql sorgusu
+
+SELECT 
+ITEMCODE, ITEMNAME, BRAND , CATEGORY1, CATEGORY2,SUM(AMOUNT) TOTALAMOUNT ,SUM(TOTALPRICE) TOTALSALE,
+MIN(DATE_) FIRSTDATE, MAX(DATE_) LASTDATE,
+MIN(PRICE) MINPRICE, MAX(PRICE) MAXPRICE, AVG(PRICE) AVGPRICE
+FROM SALES
+GROUP BY ITEMCODE, ITEMNAME, BRAND , CATEGORY1, CATEGORY2
+
+
+
+--mağazaların müşteri sayılarını gösterme
+SELECT
+CITY, COUNT(DISTINCT CUSTOMERCODE)
+FROM SALES
+GROUP BY CITY
+
+
