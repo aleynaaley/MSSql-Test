@@ -1,26 +1,26 @@
-select COUNT (*) COUNTDEĞERİ, SUM (TOTALPRICE) SUMDEĞERİ, AVG(AMOUNT),AVG(TOTALPRICE)
+select COUNT (*) COUNTDEÄERÄ°, SUM (TOTALPRICE) SUMDEÄERÄ°, AVG(AMOUNT),AVG(TOTALPRICE)
 from SALES
 where CITY = 'BAYBURT' 
 
--- BAYBURT ŞEHRİİ FİLTRELEYİP  TÜM SATIRLARI SAYIP BİR KOLONDA DEĞERİNİ VERİYOR , SUM DA TOTALPRİCE LARI TOPLATIP BAŞKA BİR KOLONDA YAZIYOR AVG DE ORTLAMAYI 
---ALIYOR. YANINDAKİ COUNTDEĞERİ GİBİ İSİMLER KOLONLARIN BANA ÇIKTI OLARAK VERDİĞİ TABLONUN KOLONUNUN ADI OLUYOR . BAŞINA 'AS ' DE GETİREBİLİRSİN
+-- BAYBURT ÅEHRÄ°Ä° FÄ°LTRELEYÄ°P  TÃœM SATIRLARI SAYIP BÄ°R KOLONDA DEÄERÄ°NÄ° VERÄ°YOR , SUM DA TOTALPRÄ°CE LARI TOPLATIP BAÅKA BÄ°R KOLONDA YAZIYOR AVG DE ORTLAMAYI 
+--ALIYOR. YANINDAKÄ° COUNTDEÄERÄ° GÄ°BÄ° Ä°SÄ°MLER KOLONLARIN BANA Ã‡IKTI OLARAK VERDÄ°ÄÄ° TABLONUN KOLONUNUN ADI OLUYOR . BAÅINA 'AS ' DE GETÄ°REBÄ°LÄ°RSÄ°N
 
-select COUNT (*) AS COUNTDEĞERİ, SUM (TOTALPRICE) SUMDEĞERİ, AVG(AMOUNT),AVG(TOTALPRICE)
+select COUNT (*) AS COUNTDEÄERÄ°, SUM (TOTALPRICE) SUMDEÄERÄ°, AVG(AMOUNT),AVG(TOTALPRICE)
 from SALES
 where CITY = 'BAYBURT' 
 
---AS EKLENMİŞ HALİ
+--AS EKLENMÄ°Å HALÄ°
 
 
 SELECT *,
-       (SELECT SUM(TOTALPRICE) FROM SALES) AS count_değeri
+       (SELECT SUM(TOTALPRICE) FROM SALES) AS count_deÄŸeri
 FROM SALES;
 
--- BURADA TÜM ÇIKTILARIN TOTAL PRİCE LARI TOPLAYIP ORJİNAL TABLODADA COUNTDEĞERİ DİYE KOLON AÇIP ONA YAZIYOR -TÜM DEĞERLER AYNI-
+-- BURADA TÃœM Ã‡IKTILARIN TOTAL PRÄ°CE LARI TOPLAYIP ORJÄ°NAL TABLODADA COUNTDEÄERÄ° DÄ°YE KOLON AÃ‡IP ONA YAZIYOR -TÃœM DEÄERLER AYNI-
 
 
 
---ÇIKTIDAKİ TABLOLARDA KOLON ADINI DEĞİŞTİREBİLİRSİN 
+--Ã‡IKTIDAKÄ° TABLOLARDA KOLON ADINI DEÄÄ°ÅTÄ°REBÄ°LÄ°RSÄ°N 
 SELECT 
 CITY CITYNAME, FICHENO FISHENUMBER
 FROM SALES
@@ -31,12 +31,12 @@ SELECT
 CITY,DISTRICT,
 COUNT(*) SATIRSAYISI, SUM(TOTALPRICE) TOPLAMCIRO, MAX(TOTALPRICE) ENYUKSEKFIYAT, MIN (TOTALPRICE) ENDUSUKFIYAT 
 FROM SALES
---WHERE CITY IN ('İSTANBUL', 'BAYBURT')
+--WHERE CITY IN ('Ä°STANBUL', 'BAYBURT')
 GROUP BY CITY ,DISTRICT
 ORDER BY CITY , DISTRICT
 
--- İSTANBUL VE BAYBURTU GRUP YAPIYOR İKİSİNİN DE KENDİ İÇİNDE İSTANBULUN SATIR SAYISI CE TOPLAM CİR ALTINDA DA DİĞER SATIR BAYBURT SATIR VE TOPLAM CİRO VERİR.
---WHERE ŞARTI KALKSA TÜM ŞEHİRLER İÇİN YAPAR
+-- Ä°STANBUL VE BAYBURTU GRUP YAPIYOR Ä°KÄ°SÄ°NÄ°N DE KENDÄ° Ä°Ã‡Ä°NDE Ä°STANBULUN SATIR SAYISI CE TOPLAM CÄ°R ALTINDA DA DÄ°ÄER SATIR BAYBURT SATIR VE TOPLAM CÄ°RO VERÄ°R.
+--WHERE ÅARTI KALKSA TÃœM ÅEHÄ°RLER Ä°Ã‡Ä°N YAPAR
 
 
 
@@ -45,20 +45,21 @@ ORDER BY CITY , DISTRICT
 
 
 
---ALIŞTIRMALAR
+--ALIÅTIRMALAR
 
 
---Bir mağazanın günlük bazlı satış rakamını getirme
+--Bir maÄŸazanÄ±n gÃ¼nlÃ¼k bazlÄ± satÄ±ÅŸ rakamÄ±nÄ± getirme
 SELECT 
 CONVERT(DATE, DATE_) AS DATE__, SUM (TOTALPRICE) TOTALSALE
 FROM SALES
-WHERE CITY = 'İSTANBUL'
+WHERE CITY = 'Ä°STANBUL'
 
 GROUP BY CONVERT (DATE,DATE_)
 ORDER BY 1--CONVERT (DATE,DATE_) , DATE__
 
---DATE_ değerinde saat de olduğu için sadece date e çevirdik CONVERT ile gruplamayı da yeni date e göre yaptık.
--- DATE__ YENİ OLUŞAN GROUP BY da çalışmaz ama order by da çalışır
+--DATE_ deÄŸerinde saat de olduÄŸu iÃ§in sadece date e Ã§evirdik CONVERT ile gruplamayÄ± da yeni date e gÃ¶re yaptÄ±k.
+-- DATE__ YENÄ° OLUÅAN GROUP BY da Ã§alÄ±ÅŸmaz ama order by da Ã§alÄ±ÅŸÄ±r
+
 
 
 SELECT 
@@ -70,4 +71,34 @@ WHERE CONVERT(DATE,DATE_) = '2019-04-22'
 GROUP BY CITY
 ORDER BY TOTALSALE DESC--1--CITY,
 
---burada herhangi bir günde tüm mağazzzalarda ne kadar ürün satılmış ve ne kadar tutmuş onu getiren kod
+--burada herhangi bir gÃ¼nde tÃ¼m maÄŸazzzalarda ne kadar Ã¼rÃ¼n satÄ±lmÄ±ÅŸ ve ne kadar tutmuÅŸ onu getiren kod
+
+
+
+
+
+--belirli bir cironun Ã¼zerinde olan maÄŸazalarÄ± getirme
+SELECT 
+CITY, SUM(TOTALPRICE) TOTALSALE
+FROM SALES
+HAVING SUM(TOTALPRICE) >  100000
+GROUP BY CITY 
+ORDER BY 2 DESC
+
+--HAVING where ÅŸartÄ±yla aynÄ± Ã§alÄ±ÅŸÄ±r ama where ÅŸartÄ±nda agg. func. kullanamzsÄ±n bu yÃ¼zden having kullanÄ±lÄ±r
+
+
+--maÄŸazanÄ±n aylara gÃ¶re satÄ±larÄ±nÄ± getiren sorgu
+
+SET language turkish
+SELECT 
+CITY, SUM(TOTALPRICE) TOTALSALE,
+DATENAME(MONTH,DATE_) MONTHNAME_,
+DATEPART(MONTH,DATE_) MONTHNUM
+FROM SALES
+GROUP BY CITY, DATENAME(MONTH,DATE_) MONTHNAME_,DATEPART(MONTH,DATE_) MONTHNUM
+ORDER BY 1,2
+
+-- burada DATANAME () fonksiyonu belirtilen ÅŸekilde tarihleri filtreler ve adÄ±nÄ± dÃ¶ndÃ¼rÃ¼r ingilizce, DATEPART() ise belirtilen ÅŸekilde tarihi filtreler ama 
+--sayÄ± dÃ¶ndÃ¼rÃ¼n (1-12 ay gibi) , tÃ¼rkÃ§e yazdÄ±rmasÄ± iÃ§in set language kullanÄ±lÄ±r.
+
